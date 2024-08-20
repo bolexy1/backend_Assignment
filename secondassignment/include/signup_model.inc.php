@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 function get_username(object $pdo,string  $username) {
-    $query = 'SELECT username FROM raolakschoolusers WHERE username =:username;';
+    $query = 'SELECT username FROM users WHERE username =:username;';
     $stmt = $pdo->prepare($query);
     $stmt->bindparam(":username", $username);
     $stmt->execute();
@@ -13,7 +13,7 @@ function get_username(object $pdo,string  $username) {
 }
 
 function get_email(object $pdo,string  $email) {
-    $query = 'SELECT username FROM raolakschoolusers WHERE email =:email;';
+    $query = 'SELECT username FROM users WHERE email =:email;';
     $stmt = $pdo->prepare($query);
     $stmt->bindparam(":email", $email);
     $stmt->execute();
@@ -23,28 +23,12 @@ function get_email(object $pdo,string  $email) {
 
 }
 
-function get_match(string $pwd, String $cpwd){
-    if ($pwd===$cpwd){
-        return true;
-    }else {
-        return false;
-    }
 
-}
 
-function long_name (string $fullname){
 
-    $newname = strlen($fullname);
-    if ($newname < 50){
-
-        return true;
-    }else {
-        return false;
-    }
-}
 
 function set_user (object $pdo,  string $username, string $fullname, string $email, string $phoneNumber,string $pwd, string $gender, string $state ) {
-    $query = "INSERT INTO raolakschoolusers  ( username,fullname, email,phoneNumber,pwd,gender, state ) VALUES (:username,:fullname, :email,:phoneNumber,:pwd, :gender, :state);";  
+    $query = "INSERT INTO users  ( username,fullname, email,phoneNumber,pwd,gender, state ) VALUES (:username,:fullname, :email,:phoneNumber,:pwd, :gender, :state);";  
     $stmt = $pdo->prepare($query);
 
     $options = [
@@ -63,7 +47,7 @@ function set_user (object $pdo,  string $username, string $fullname, string $ema
 };
 
 function get_phone(object $pdo, string $phoneNumber) {
-    $query = 'SELECT username FROM raolakschoolusers WHERE phoneNumber =:phoneNumber;';
+    $query = 'SELECT username FROM users WHERE phoneNumber =:phoneNumber;';
     $stmt = $pdo->prepare($query);
     $stmt->bindparam(":phoneNumber", $phoneNumber);
     $stmt->execute();

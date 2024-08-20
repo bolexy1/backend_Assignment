@@ -1,6 +1,6 @@
 <?php
 
-$con = "mysql:host=localhost; dbname=myfirstdatabase";
+$con = "mysql:host=localhost; dbname=raolakschool";
 $dbusername = "root";
 $dbpassword = "";
 try {
@@ -8,4 +8,4 @@ try {
      $pdo-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     echo "Connection failed". $e->getMessage();
-}
+}  

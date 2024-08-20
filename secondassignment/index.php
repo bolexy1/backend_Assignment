@@ -8,8 +8,8 @@ require_once 'include/signup_view.inc.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css?v=1.0">
+    <title>signup_page</title>
 </head>
 <body>
     
@@ -24,13 +24,19 @@ require_once 'include/signup_view.inc.php';
         <input class = "cl" type="text" name="email" placeholder="Email"required><br><br>
         <input class = "cl" type="number" name="phone" placeholder="phone number"required><br><br>
         <select class = "cl" name="state" id="" required>
-            <option value="1">select states</option>
+            <option value="1">select state</option>    
+            <option value="oyo">Oyo</option>
             <option value="abia">Abia</option>
             <option value="Adamawa">Adamawa</option>
-            <option value="Aquaibom">Akwa-ibom</option>
+            <option value="Akwa-ibom">Akwa-ibom</option>
             <option value="anambra">Anambra</option>
             <option value="bauchi">Bauchi</option>
-        </select><br><br>
+            <option value="lagos">Lagos</option>
+            <option value="osun">Osun</option>
+            <option value="ondo">Ondo</option>
+
+        </select>
+        <br><br>
 
         <label for="Gender">Genders</label><br><br>
         <label for="male">Male</label>
@@ -40,6 +46,7 @@ require_once 'include/signup_view.inc.php';
         <br><br>
         
         <button>SignUp</button>
+        <button><a href="login.php">login here</a></button>
 <?php
     check_signup_errors() 
         ?>

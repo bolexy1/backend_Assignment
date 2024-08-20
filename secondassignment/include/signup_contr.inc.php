@@ -49,6 +49,39 @@ function is_phone_registered(object $pdo, string $phoneNumber) {
     }
 
 }
+function get_match(string $pwd, String $cpwd){
+    if ($pwd===$cpwd){
+        return true;
+    }else {
+        return false;
+    }
+
+}
+function pass (string $pwd){
+   
+    $newpwd = strlen($pwd);
+    if ($newpwd > 5) {
+        return true;
+    }else {
+        return false;
+    }
+
+}
+
+function pass_verif(string $pwd){
+    if(!pass($pwd)){
+        return true;
+    }else{
+        return false;
+    }
+}
+function notValidPwd(string $pwd){
+    if(!(preg_match('/[a-zA-Z]/', $pwd) && preg_match('/[0-9]/', $pwd))){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 function does_pwd_match(string $pwd, string $cpwd) {
     if(!get_match($pwd, $cpwd)){
@@ -60,6 +93,17 @@ function does_pwd_match(string $pwd, string $cpwd) {
     
 } 
 
+function long_name (string $fullname){
+
+    $newname = strlen($fullname);
+    if ($newname < 50){
+
+        return true;
+    }else {
+        return false;
+    }
+}
+
 function is_fullname_long(string $fullname){
     if(!long_name($fullname)){
         return true;
@@ -68,6 +112,8 @@ function is_fullname_long(string $fullname){
     }
 
 }
+
+
 
 function validatePhoneNumber($phoneNumber) {
     // Remove all non-digit characters

@@ -34,9 +34,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $errors["email_used"] = "email already registered!";
 
         }
+
+        if (notValidPwd($pwd)) {
+           $errors["pwd_error"] = "input both text and number";
+        }
+        
         if (does_pwd_match($pwd, $cpwd)){
             $errors["pwd_match"] = "password don't match";
+        }
 
+        if(pass_verif($pwd)){
+            $errors["ped_short"] = "password not enough"; 
         }
         if (!validatePhoneNumber($phoneNumber)){
             $errors[" invalid_phonenumber"]= "incorrect phone number formart";

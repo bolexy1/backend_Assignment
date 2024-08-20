@@ -6,7 +6,7 @@
 
 body{
     background-color: rgba(245, 222, 179, 0.386);
-    background-image:url(img/pexels-photo-1103970.webp); 
+    background-image:url(img/img3.jpg); 
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -17,7 +17,7 @@ div{
     margin-left: 480px;
     width: 360px;
     height: 500px;
-    background-color: rgba(73, 58, 87, 0.418);
+    background-color: rgb(198, 210, 177);
     padding-left: 160px;
     padding-top: 20px;
     border-radius: 20px;
@@ -59,7 +59,11 @@ button {
     margin-left: 50px;
     border-radius: 5px;
     box-shadow: 2px, 2px, 3px, 3px black;
+}
 
+a {
+    color: white;
+    text-decoration: none;
 }
 
 .lin {
