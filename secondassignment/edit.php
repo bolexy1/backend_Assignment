@@ -24,14 +24,12 @@
     <form action="include/edit.inc.php" method="POST">   
     <input class = "cl" type="text" name="name" placeholder="Edit your full name" value="<?php echo htmlspecialchars( $_SESSION['user_Fullname']) ?>" required><br><br>
         <input class = "cl" type="text" name="username" placeholder=" Username" value="<?php echo htmlspecialchars( $_SESSION['user_username']) ?>" readonly><br><br>
-        <input class = "cl" type="password" name="crpwd" placeholder=" current Password" required><br><br>
-        <input class = "cl" type="password" name="pwd" placeholder=" edit Password" required><br><br>
-        <input class = "cl"  type="password" name="cpwd" placeholder="confirm Password" required><br><br>
         <input class = "cl" type="text" name="email" placeholder=" edit Email"value="<?php echo htmlspecialchars( $_SESSION['user_email']) ?>"required><br><br>
         <input class = "cl" type="number" name="phone" placeholder="edit phone number" value="<?php echo htmlspecialchars( $_SESSION['user_phone']) ?>"required><br><br>
         <input class = "cl" type="text" name="address" placeholder="Enter your address" ><br><br>
+        <input class = "cl" type="password" name="crpwd" placeholder=" current Password" required><br><br>
        
-        <button>SignUp</button>
+        <button>Edit</button>
        <?php
         check_edit_errors();
 

@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // error handlers
         $errors = [];
 
-        if (is_input_empty($username, $pwd)) {
+        if (is_inputs_empty($username, $pwd)) {
             $errors["empty_input"] = "fill in all fields!";
         }
 
@@ -60,9 +60,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['user_gender'] = htmlspecialchars($result["gender"]);
         $_SESSION['user_state'] = htmlspecialchars($result["state"]);
         $_SESSION['user_pwd'] = htmlspecialchars($result["pwd"]);
+        $_SESSION['address'] = htmlspecialchars($result["Address"]);
         $_SESSION["last_regeneration"] = time();
-
         header("Location: ../dash.php?login=success");
+
+        // Check if "Remember Me" is checked
+if (isset($_POST['remember_me'])) {
+    // Set cookies for 30 days
+    setcookie('username', $username, time() + (86400 * 30), "/");
+    
+    
+    setcookie('pwd', $pwd, time() + (86400 * 30), "/");
+} else {
+    // If not checked, clear any existing cookies
+    if (isset($_COOKIE['username'])) {
+        setcookie('username', '', time() - 3600, "/");
+    }
+    if (isset($_COOKIE['pwd'])) {
+        setcookie('pwd', '', time() - 3600, "/");
+
+    }  }
+      
         $pdo = null;
         $stmt = null;
         die();

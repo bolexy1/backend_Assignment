@@ -130,11 +130,11 @@ function validatePhoneNumber($phoneNumber) {
 
 // Example usage:
  // Replace with the phone number you want to validate
-if (validatePhoneNumber($phoneNumber)) {
-    return true;
-} else {
-    return false;
-}
+// if (validatePhoneNumber($phoneNumber)) {
+//     return true;
+// } else {
+//     return false;
+// }
 
 function create_user(object $pdo, string $username, string $fullname,  string $email, String $phoneNumber, string $pwd, string $gender, string $state ) 
 {

@@ -24,6 +24,7 @@ div{
 }
 
 h3 {
+    color: white;
     font-size: 50px;
     margin-top: 80px;
     margin-left:540px ;
@@ -67,19 +68,53 @@ a {
 }
 
 .lin {
-    margin-top: 20px;
-    margin-left: 480px;
-    width: 300px;
-    height: 150px;
-    background-color: rgba(73, 58, 87, 0.418);
-    padding-left: 100px;
-    padding-top: 50px;
+    margin-top: 100px;
+    margin-left: 500px;
+    width: 400px;
+    height: 200px;
+    background-color: rgba(13, 13, 14, 0.418);
+    padding-left: 20px;
+    padding-top: 30px;
     border-radius: 20px;
+}
+#check{
+    margin-top: 100px;
+    margin-left: 500px;
+    width: 400px;
+    height: 200px;
+    background-color: rgba(13, 13, 14, 0.418);
+    padding-left: 20px;
+    padding-top: 30px;
+    border-radius: 20px;
+}
+.rem {
+    color:yellow;
+}
+#check input {
+    width:300px;
+    margin-top: 10px;
+}
+#check input[type="checkbox"]{
+    width:30px;
+    align-items: left;
+}
+.lin input {
+    width:300px;
+    margin-top: 20px;
+}
+
+.lin button{
+    margin-left: 10px;
 }
 
 p {
     color:red;
     font-size: 20px;
+}
+
+.text {
+    color:white;
+    font-size: 15px;
 }
 
 h4 {
@@ -99,3 +134,4 @@ h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-left: 50px;
 }
+

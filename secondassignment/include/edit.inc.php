@@ -2,11 +2,9 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $fullname = ($_POST['name']);
     $username = $_POST['username'];    
-    $pwd = ($_POST['pwd']);
     $crpwd =($_POST['crpwd']);
     $phoneNumber = ($_POST['phone']);
     $email = ($_POST['email']);
-    $cpwd =($_POST['cpwd']);
     $address = ($_POST['address']);
    
 
@@ -19,10 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
         $errors = [];
-        if (is_input_empty($fullname,$username,$pwd,$phoneNumber,$email,$cpwd,$address )) {
+        if (is_edit_empty($fullname,$username,$phoneNumber,$email,$address,$crpwd )) {
             $errors["empty_input"] = "fill in all fields!";
 
-        } 
+        }
 
         $result = password($pdo, $username);
 
@@ -32,17 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $errors["invalid_email"] = "invalid email used!";
 
         }
-        if (does_pwd_match($pwd, $cpwd)){
-            $errors["pwd_match"] = "password don't match";
 
-        }
-
-        if(pass_verif($pwd)){
-            $errors["ped_short"] = "password not enough"; 
-        }
-        if (notValidPwd($pwd)) {
-            $errors["pwd_error"] = "input both text and number";
-         }
         if (!validatePhoneNumber($phoneNumber)){
             $errors[" invalid_phonenumber"] = "incorrect phone number formart";
 
@@ -68,7 +56,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         echo "i am here";
 
 
-        update_fullname ($pdo,  $username, $fullname,$email,$pwd, $phoneNumber, $address);
+        update_fullname ($pdo,  $username, $fullname,$email, $phoneNumber, $address);
+        
+        $_SESSION['user_Fullname'] = htmlspecialchars($fullname);
+        $_SESSION['user_email'] = htmlspecialchars($email);
+        $_SESSION['user_phone'] = htmlspecialchars($phoneNumber);
+        $_SESSION['user_gender'] = htmlspecialchars($result["gender"]);
+        $_SESSION['user_state'] = htmlspecialchars($result["state"]);
+        $_SESSION['address'] = htmlspecialchars($address);
+        $_SESSION["last_regeneration"] = time(); 
         header("Location: ../test.php?edit=success"); 
         $pdo = null;
         $stmt = null;
